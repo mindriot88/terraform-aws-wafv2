@@ -8105,7 +8105,7 @@ resource "aws_wafv2_web_acl" "this" {
               }
             }
             dynamic "custom_key" {
-              for_each = lookup(rate_based_statement.value, "custom_key", null) == null ? [] : lookup(rate_based_statement.value, "custom_key")
+              for_each = lookup(rate_based_statement.value, "custom_key", [])
               iterator = custom_key
 
               content {
